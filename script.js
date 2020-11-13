@@ -21,11 +21,11 @@ function pickRandomHole(holes){
 }
 
 function popOut(){
-    const time=Math.random()*1300 + 400; //between 400 and 1700
+    const time=Math.random()*1300 + 400;
     const hole = pickRandomHole(holes);
     //pick random hole div element and class to it
     hole.classList.add('up');
-    setTimeout(function(){//settimeout after how many secs cllback function should run
+    setTimeout(function(){
         hole.classList.remove('up');
         if(!timeUp){
             popOut();
@@ -41,7 +41,7 @@ function startGame(){
     timeUp=false;
     score=0;
     popOut();
-    setTimeout(function(){//setTimeOut: how often the callback function should run
+    setTimeout(function(){
         timeUp=true;
     },timeLimit);
 
@@ -50,7 +50,7 @@ function startGame(){
         countdownBoard.textContent=countdown;
         if(countdown<0){
             countdown=0;
-            clearInterval(startCountdown); // you need to pass the interval in clearInterval u want to clear
+            clearInterval(startCountdown); 
             countdownBoard.textContent="Time's Up! Thank you for protecting our planet! This is the way!";
         }
     },1000)
@@ -72,5 +72,3 @@ function whack(e){
 moles.forEach(mole => mole.addEventListener('click',whack));
 
 
-/*bind: bind a reference and force to js what this keyword stand for but in es6 arrow
-function automatically binds the reference no need to call bind() if u do with arrow function*/ 
